@@ -100,7 +100,7 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8D1107310486CEB800E47090 /* campfireTunes-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "campfireTunes-Info.plist"; sourceTree = "<group>"; };
-		8D1107320486CEB800E47090 /* saucy-tunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "saucy-tunes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D1107320486CEB800E47090 /* campfireTunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = campfireTunes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,7 +152,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8D1107320486CEB800E47090 /* saucy-tunes.app */,
+				8D1107320486CEB800E47090 /* campfireTunes.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -271,7 +271,7 @@
 			name = CampfireTunes;
 			productInstallPath = "$(HOME)/Applications";
 			productName = "saucy-tunes";
-			productReference = 8D1107320486CEB800E47090 /* saucy-tunes.app */;
+			productReference = 8D1107320486CEB800E47090 /* campfireTunes.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -371,10 +371,11 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = saucy_tunes_Prefix.pch;
+				GCC_PREFIX_HEADER = campfireTunes_Prefix.pch;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "campfireTunes-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = "saucy-tunes";
+				PRODUCT_NAME = campfireTunes;
 			};
 			name = Debug;
 		};
