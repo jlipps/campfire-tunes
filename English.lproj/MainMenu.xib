@@ -650,7 +650,7 @@
 			<object class="NSWindowTemplate" id="972006081">
 				<int key="NSWindowStyleMask">261</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{335, 643}, {335, 107}}</string>
+				<string key="NSWindowRect">{{335, 635}, {335, 115}}</string>
 				<int key="NSWTFlags">1954021376</int>
 				<string key="NSWindowTitle">CampfireTunes</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -664,7 +664,7 @@
 						<object class="NSTextField" id="516564441">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{17, 70}, {57, 17}}</string>
+							<string key="NSFrame">{{17, 78}, {57, 17}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="301009568">
@@ -700,7 +700,7 @@
 						<object class="NSTextField" id="60741150">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{76, 70}, {242, 17}}</string>
+							<string key="NSFrame">{{76, 78}, {242, 17}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="665325136">
@@ -716,7 +716,7 @@
 						<object class="NSTextField" id="977413184">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{76, 45}, {242, 17}}</string>
+							<string key="NSFrame">{{76, 53}, {242, 17}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="428074581">
@@ -739,12 +739,12 @@
 						<object class="NSTextField" id="233148308">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{76, 30}, {242, 17}}</string>
+							<string key="NSFrame">{{76, 20}, {242, 35}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="748683190">
-								<int key="NSCellFlags">68288064</int>
-								<int key="NSCellFlags2">272630784</int>
+								<int key="NSCellFlags">67239424</int>
+								<int key="NSCellFlags2">272629760</int>
 								<string key="NSContents"/>
 								<reference key="NSSupport" ref="862944399"/>
 								<reference key="NSControlView" ref="233148308"/>
@@ -756,7 +756,7 @@
 							</object>
 						</object>
 					</object>
-					<string key="NSFrameSize">{335, 107}</string>
+					<string key="NSFrameSize">{335, 115}</string>
 					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
@@ -2412,9 +2412,9 @@
 					<integer value="1"/>
 					<string>{74, 862}</string>
 					<string>{{6, 978}, {478, 20}}</string>
-					<string>{{391, 656}, {335, 107}}</string>
+					<string>{{391, 648}, {335, 115}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{391, 656}, {335, 107}}</string>
+					<string>{{391, 648}, {335, 115}}</string>
 					<integer value="1"/>
 					<string>{{33, 99}, {480, 360}}</string>
 					<string>{3.40282e+38, 3.40282e+38}</string>
@@ -2442,9 +2442,9 @@
 						<bytes key="NSTransformStruct">P4AAAL+AAABCmAAAwgwAAA</bytes>
 					</object>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{411, 487}, {286, 264}}</string>
+					<string>{{442, 310}, {286, 264}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{411, 487}, {286, 264}}</string>
+					<string>{{442, 310}, {286, 264}}</string>
 					<boolean value="NO"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3231,7 +3231,7 @@
 			<integer value="3000" key="NS.object.0"/>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
-		<string key="IBDocument.LastKnownRelativeProjectPath">../saucy-tunes.xcodeproj</string>
+		<string key="IBDocument.LastKnownRelativeProjectPath">../campfire-tunes.xcodeproj</string>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<bool key="EncodedWithXMLCoder">YES</bool>
