@@ -1,0 +1,446 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1B6F512315658FE400093430 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6F512215658FE400093430 /* ScriptingBridge.framework */; };
+		1B6F6B541565C8CC00B5AF2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6F6B531565C8CC00B5AF2A /* Foundation.framework */; };
+		1B6F6BC71566AEC000B5AF2A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6F6BC61566AEC000B5AF2A /* SystemConfiguration.framework */; };
+		1B6F6BC91566AEEB00B5AF2A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6F6BC81566AEEB00B5AF2A /* libz.dylib */; };
+		1B6F6BCB1566AEFA00B5AF2A /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6F6BCA1566AEFA00B5AF2A /* CoreServices.framework */; };
+		1B6F6C651566B38F00B5AF2A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6F6C641566B38F00B5AF2A /* libxml2.dylib */; };
+		1B8ECE451566F4B600FEA7C8 /* campfireTunesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE441566F4B600FEA7C8 /* campfireTunesAppDelegate.m */; };
+		1B8ECE471566F4BD00FEA7C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE461566F4BD00FEA7C8 /* main.m */; };
+		1B8ECE741566F4DB00FEA7C8 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE4B1566F4DB00FEA7C8 /* ASIDataCompressor.m */; };
+		1B8ECE751566F4DB00FEA7C8 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE4D1566F4DB00FEA7C8 /* ASIDataDecompressor.m */; };
+		1B8ECE761566F4DB00FEA7C8 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE4F1566F4DB00FEA7C8 /* ASIDownloadCache.m */; };
+		1B8ECE771566F4DB00FEA7C8 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE511566F4DB00FEA7C8 /* ASIFormDataRequest.m */; };
+		1B8ECE781566F4DB00FEA7C8 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE531566F4DB00FEA7C8 /* ASIHTTPRequest.m */; };
+		1B8ECE791566F4DB00FEA7C8 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE571566F4DB00FEA7C8 /* ASIInputStream.m */; };
+		1B8ECE7A1566F4DB00FEA7C8 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE591566F4DB00FEA7C8 /* ASINetworkQueue.m */; };
+		1B8ECE7B1566F4DB00FEA7C8 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE5C1566F4DB00FEA7C8 /* GDataXMLNode.m */; };
+		1B8ECE7C1566F4DB00FEA7C8 /* HappyCampfire.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE5E1566F4DB00FEA7C8 /* HappyCampfire.m */; };
+		1B8ECE7D1566F4DB00FEA7C8 /* HCMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE601566F4DB00FEA7C8 /* HCMessage.m */; };
+		1B8ECE7E1566F4DB00FEA7C8 /* HCRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE621566F4DB00FEA7C8 /* HCRoom.m */; };
+		1B8ECE7F1566F4DB00FEA7C8 /* HCUploadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE641566F4DB00FEA7C8 /* HCUploadFile.m */; };
+		1B8ECE801566F4DB00FEA7C8 /* HCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE661566F4DB00FEA7C8 /* HCUser.m */; };
+		1B8ECE811566F4DB00FEA7C8 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE691566F4DB00FEA7C8 /* NSObject+SBJSON.m */; };
+		1B8ECE821566F4DB00FEA7C8 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE6B1566F4DB00FEA7C8 /* NSString+SBJSON.m */; };
+		1B8ECE831566F4DB00FEA7C8 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE6D1566F4DB00FEA7C8 /* SBJSON.m */; };
+		1B8ECE841566F4DB00FEA7C8 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE6F1566F4DB00FEA7C8 /* SBJsonBase.m */; };
+		1B8ECE851566F4DB00FEA7C8 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE711566F4DB00FEA7C8 /* SBJsonParser.m */; };
+		1B8ECE861566F4DB00FEA7C8 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE731566F4DB00FEA7C8 /* SBJsonWriter.m */; };
+		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
+		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
+		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1B6F512215658FE400093430 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
+		1B6F6B531565C8CC00B5AF2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1B6F6BC61566AEC000B5AF2A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1B6F6BC81566AEEB00B5AF2A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		1B6F6BCA1566AEFA00B5AF2A /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		1B6F6C641566B38F00B5AF2A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		1B8ECE421566F4B600FEA7C8 /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
+		1B8ECE431566F4B600FEA7C8 /* campfireTunesAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = campfireTunesAppDelegate.h; sourceTree = "<group>"; };
+		1B8ECE441566F4B600FEA7C8 /* campfireTunesAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = campfireTunesAppDelegate.m; sourceTree = "<group>"; };
+		1B8ECE461566F4BD00FEA7C8 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1B8ECE491566F4DB00FEA7C8 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASICacheDelegate.h; path = HappyCampfire/ASICacheDelegate.h; sourceTree = "<group>"; };
+		1B8ECE4A1566F4DB00FEA7C8 /* ASIDataCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIDataCompressor.h; path = HappyCampfire/ASIDataCompressor.h; sourceTree = "<group>"; };
+		1B8ECE4B1566F4DB00FEA7C8 /* ASIDataCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASIDataCompressor.m; path = HappyCampfire/ASIDataCompressor.m; sourceTree = "<group>"; };
+		1B8ECE4C1566F4DB00FEA7C8 /* ASIDataDecompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIDataDecompressor.h; path = HappyCampfire/ASIDataDecompressor.h; sourceTree = "<group>"; };
+		1B8ECE4D1566F4DB00FEA7C8 /* ASIDataDecompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASIDataDecompressor.m; path = HappyCampfire/ASIDataDecompressor.m; sourceTree = "<group>"; };
+		1B8ECE4E1566F4DB00FEA7C8 /* ASIDownloadCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIDownloadCache.h; path = HappyCampfire/ASIDownloadCache.h; sourceTree = "<group>"; };
+		1B8ECE4F1566F4DB00FEA7C8 /* ASIDownloadCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASIDownloadCache.m; path = HappyCampfire/ASIDownloadCache.m; sourceTree = "<group>"; };
+		1B8ECE501566F4DB00FEA7C8 /* ASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIFormDataRequest.h; path = HappyCampfire/ASIFormDataRequest.h; sourceTree = "<group>"; };
+		1B8ECE511566F4DB00FEA7C8 /* ASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASIFormDataRequest.m; path = HappyCampfire/ASIFormDataRequest.m; sourceTree = "<group>"; };
+		1B8ECE521566F4DB00FEA7C8 /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIHTTPRequest.h; path = HappyCampfire/ASIHTTPRequest.h; sourceTree = "<group>"; };
+		1B8ECE531566F4DB00FEA7C8 /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASIHTTPRequest.m; path = HappyCampfire/ASIHTTPRequest.m; sourceTree = "<group>"; };
+		1B8ECE541566F4DB00FEA7C8 /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIHTTPRequestConfig.h; path = HappyCampfire/ASIHTTPRequestConfig.h; sourceTree = "<group>"; };
+		1B8ECE551566F4DB00FEA7C8 /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIHTTPRequestDelegate.h; path = HappyCampfire/ASIHTTPRequestDelegate.h; sourceTree = "<group>"; };
+		1B8ECE561566F4DB00FEA7C8 /* ASIInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIInputStream.h; path = HappyCampfire/ASIInputStream.h; sourceTree = "<group>"; };
+		1B8ECE571566F4DB00FEA7C8 /* ASIInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASIInputStream.m; path = HappyCampfire/ASIInputStream.m; sourceTree = "<group>"; };
+		1B8ECE581566F4DB00FEA7C8 /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASINetworkQueue.h; path = HappyCampfire/ASINetworkQueue.h; sourceTree = "<group>"; };
+		1B8ECE591566F4DB00FEA7C8 /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASINetworkQueue.m; path = HappyCampfire/ASINetworkQueue.m; sourceTree = "<group>"; };
+		1B8ECE5A1566F4DB00FEA7C8 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIProgressDelegate.h; path = HappyCampfire/ASIProgressDelegate.h; sourceTree = "<group>"; };
+		1B8ECE5B1566F4DB00FEA7C8 /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDataXMLNode.h; path = HappyCampfire/GDataXMLNode.h; sourceTree = "<group>"; };
+		1B8ECE5C1566F4DB00FEA7C8 /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = HappyCampfire/GDataXMLNode.m; sourceTree = "<group>"; };
+		1B8ECE5D1566F4DB00FEA7C8 /* HappyCampfire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HappyCampfire.h; path = HappyCampfire/HappyCampfire.h; sourceTree = "<group>"; };
+		1B8ECE5E1566F4DB00FEA7C8 /* HappyCampfire.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HappyCampfire.m; path = HappyCampfire/HappyCampfire.m; sourceTree = "<group>"; };
+		1B8ECE5F1566F4DB00FEA7C8 /* HCMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HCMessage.h; path = HappyCampfire/HCMessage.h; sourceTree = "<group>"; };
+		1B8ECE601566F4DB00FEA7C8 /* HCMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HCMessage.m; path = HappyCampfire/HCMessage.m; sourceTree = "<group>"; };
+		1B8ECE611566F4DB00FEA7C8 /* HCRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HCRoom.h; path = HappyCampfire/HCRoom.h; sourceTree = "<group>"; };
+		1B8ECE621566F4DB00FEA7C8 /* HCRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HCRoom.m; path = HappyCampfire/HCRoom.m; sourceTree = "<group>"; };
+		1B8ECE631566F4DB00FEA7C8 /* HCUploadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HCUploadFile.h; path = HappyCampfire/HCUploadFile.h; sourceTree = "<group>"; };
+		1B8ECE641566F4DB00FEA7C8 /* HCUploadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HCUploadFile.m; path = HappyCampfire/HCUploadFile.m; sourceTree = "<group>"; };
+		1B8ECE651566F4DB00FEA7C8 /* HCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HCUser.h; path = HappyCampfire/HCUser.h; sourceTree = "<group>"; };
+		1B8ECE661566F4DB00FEA7C8 /* HCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HCUser.m; path = HappyCampfire/HCUser.m; sourceTree = "<group>"; };
+		1B8ECE671566F4DB00FEA7C8 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSON.h; path = HappyCampfire/JSON.h; sourceTree = "<group>"; };
+		1B8ECE681566F4DB00FEA7C8 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SBJSON.h"; path = "HappyCampfire/NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		1B8ECE691566F4DB00FEA7C8 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SBJSON.m"; path = "HappyCampfire/NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		1B8ECE6A1566F4DB00FEA7C8 /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+SBJSON.h"; path = "HappyCampfire/NSString+SBJSON.h"; sourceTree = "<group>"; };
+		1B8ECE6B1566F4DB00FEA7C8 /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+SBJSON.m"; path = "HappyCampfire/NSString+SBJSON.m"; sourceTree = "<group>"; };
+		1B8ECE6C1566F4DB00FEA7C8 /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJSON.h; path = HappyCampfire/SBJSON.h; sourceTree = "<group>"; };
+		1B8ECE6D1566F4DB00FEA7C8 /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJSON.m; path = HappyCampfire/SBJSON.m; sourceTree = "<group>"; };
+		1B8ECE6E1566F4DB00FEA7C8 /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonBase.h; path = HappyCampfire/SBJsonBase.h; sourceTree = "<group>"; };
+		1B8ECE6F1566F4DB00FEA7C8 /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonBase.m; path = HappyCampfire/SBJsonBase.m; sourceTree = "<group>"; };
+		1B8ECE701566F4DB00FEA7C8 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonParser.h; path = HappyCampfire/SBJsonParser.h; sourceTree = "<group>"; };
+		1B8ECE711566F4DB00FEA7C8 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonParser.m; path = HappyCampfire/SBJsonParser.m; sourceTree = "<group>"; };
+		1B8ECE721566F4DB00FEA7C8 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = HappyCampfire/SBJsonWriter.h; sourceTree = "<group>"; };
+		1B8ECE731566F4DB00FEA7C8 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = HappyCampfire/SBJsonWriter.m; sourceTree = "<group>"; };
+		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		8D1107310486CEB800E47090 /* campfireTunes-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "campfireTunes-Info.plist"; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* saucy-tunes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "saucy-tunes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				1B6F512315658FE400093430 /* ScriptingBridge.framework in Frameworks */,
+				1B6F6B541565C8CC00B5AF2A /* Foundation.framework in Frameworks */,
+				1B6F6BC71566AEC000B5AF2A /* SystemConfiguration.framework in Frameworks */,
+				1B6F6BC91566AEEB00B5AF2A /* libz.dylib in Frameworks */,
+				1B6F6BCB1566AEFA00B5AF2A /* CoreServices.framework in Frameworks */,
+				1B6F6C651566B38F00B5AF2A /* libxml2.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1B8ECE421566F4B600FEA7C8 /* iTunes.h */,
+				1B8ECE431566F4B600FEA7C8 /* campfireTunesAppDelegate.h */,
+				1B8ECE441566F4B600FEA7C8 /* campfireTunesAppDelegate.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A2FEA54F0111CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
+				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* saucy-tunes.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1B8ECE481566F4C300FEA7C8 /* HappyCampfire */ = {
+			isa = PBXGroup;
+			children = (
+				1B8ECE491566F4DB00FEA7C8 /* ASICacheDelegate.h */,
+				1B8ECE4A1566F4DB00FEA7C8 /* ASIDataCompressor.h */,
+				1B8ECE4B1566F4DB00FEA7C8 /* ASIDataCompressor.m */,
+				1B8ECE4C1566F4DB00FEA7C8 /* ASIDataDecompressor.h */,
+				1B8ECE4D1566F4DB00FEA7C8 /* ASIDataDecompressor.m */,
+				1B8ECE4E1566F4DB00FEA7C8 /* ASIDownloadCache.h */,
+				1B8ECE4F1566F4DB00FEA7C8 /* ASIDownloadCache.m */,
+				1B8ECE501566F4DB00FEA7C8 /* ASIFormDataRequest.h */,
+				1B8ECE511566F4DB00FEA7C8 /* ASIFormDataRequest.m */,
+				1B8ECE521566F4DB00FEA7C8 /* ASIHTTPRequest.h */,
+				1B8ECE531566F4DB00FEA7C8 /* ASIHTTPRequest.m */,
+				1B8ECE541566F4DB00FEA7C8 /* ASIHTTPRequestConfig.h */,
+				1B8ECE551566F4DB00FEA7C8 /* ASIHTTPRequestDelegate.h */,
+				1B8ECE561566F4DB00FEA7C8 /* ASIInputStream.h */,
+				1B8ECE571566F4DB00FEA7C8 /* ASIInputStream.m */,
+				1B8ECE581566F4DB00FEA7C8 /* ASINetworkQueue.h */,
+				1B8ECE591566F4DB00FEA7C8 /* ASINetworkQueue.m */,
+				1B8ECE5A1566F4DB00FEA7C8 /* ASIProgressDelegate.h */,
+				1B8ECE5B1566F4DB00FEA7C8 /* GDataXMLNode.h */,
+				1B8ECE5C1566F4DB00FEA7C8 /* GDataXMLNode.m */,
+				1B8ECE5D1566F4DB00FEA7C8 /* HappyCampfire.h */,
+				1B8ECE5E1566F4DB00FEA7C8 /* HappyCampfire.m */,
+				1B8ECE5F1566F4DB00FEA7C8 /* HCMessage.h */,
+				1B8ECE601566F4DB00FEA7C8 /* HCMessage.m */,
+				1B8ECE611566F4DB00FEA7C8 /* HCRoom.h */,
+				1B8ECE621566F4DB00FEA7C8 /* HCRoom.m */,
+				1B8ECE631566F4DB00FEA7C8 /* HCUploadFile.h */,
+				1B8ECE641566F4DB00FEA7C8 /* HCUploadFile.m */,
+				1B8ECE651566F4DB00FEA7C8 /* HCUser.h */,
+				1B8ECE661566F4DB00FEA7C8 /* HCUser.m */,
+				1B8ECE671566F4DB00FEA7C8 /* JSON.h */,
+				1B8ECE681566F4DB00FEA7C8 /* NSObject+SBJSON.h */,
+				1B8ECE691566F4DB00FEA7C8 /* NSObject+SBJSON.m */,
+				1B8ECE6A1566F4DB00FEA7C8 /* NSString+SBJSON.h */,
+				1B8ECE6B1566F4DB00FEA7C8 /* NSString+SBJSON.m */,
+				1B8ECE6C1566F4DB00FEA7C8 /* SBJSON.h */,
+				1B8ECE6D1566F4DB00FEA7C8 /* SBJSON.m */,
+				1B8ECE6E1566F4DB00FEA7C8 /* SBJsonBase.h */,
+				1B8ECE6F1566F4DB00FEA7C8 /* SBJsonBase.m */,
+				1B8ECE701566F4DB00FEA7C8 /* SBJsonParser.h */,
+				1B8ECE711566F4DB00FEA7C8 /* SBJsonParser.m */,
+				1B8ECE721566F4DB00FEA7C8 /* SBJsonWriter.h */,
+				1B8ECE731566F4DB00FEA7C8 /* SBJsonWriter.m */,
+			);
+			name = HappyCampfire;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* saucy-tunes */ = {
+			isa = PBXGroup;
+			children = (
+				1B8ECE481566F4C300FEA7C8 /* HappyCampfire */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+				1B6F512215658FE400093430 /* ScriptingBridge.framework */,
+				1B6F6B531565C8CC00B5AF2A /* Foundation.framework */,
+				1B6F6BC61566AEC000B5AF2A /* SystemConfiguration.framework */,
+				1B6F6BC81566AEEB00B5AF2A /* libz.dylib */,
+				1B6F6BCA1566AEFA00B5AF2A /* CoreServices.framework */,
+				1B6F6C641566B38F00B5AF2A /* libxml2.dylib */,
+			);
+			name = "saucy-tunes";
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				1B8ECE461566F4BD00FEA7C8 /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107310486CEB800E47090 /* campfireTunes-Info.plist */,
+				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
+				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
+				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D1107260486CEB800E47090 /* CampfireTunes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "CampfireTunes" */;
+			buildPhases = (
+				8D1107290486CEB800E47090 /* Resources */,
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CampfireTunes;
+			productInstallPath = "$(HOME)/Applications";
+			productName = "saucy-tunes";
+			productReference = 8D1107320486CEB800E47090 /* saucy-tunes.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "campfire-tunes" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* saucy-tunes */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* CampfireTunes */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D1107290486CEB800E47090 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
+				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B8ECE451566F4B600FEA7C8 /* campfireTunesAppDelegate.m in Sources */,
+				1B8ECE471566F4BD00FEA7C8 /* main.m in Sources */,
+				1B8ECE741566F4DB00FEA7C8 /* ASIDataCompressor.m in Sources */,
+				1B8ECE751566F4DB00FEA7C8 /* ASIDataDecompressor.m in Sources */,
+				1B8ECE761566F4DB00FEA7C8 /* ASIDownloadCache.m in Sources */,
+				1B8ECE771566F4DB00FEA7C8 /* ASIFormDataRequest.m in Sources */,
+				1B8ECE781566F4DB00FEA7C8 /* ASIHTTPRequest.m in Sources */,
+				1B8ECE791566F4DB00FEA7C8 /* ASIInputStream.m in Sources */,
+				1B8ECE7A1566F4DB00FEA7C8 /* ASINetworkQueue.m in Sources */,
+				1B8ECE7B1566F4DB00FEA7C8 /* GDataXMLNode.m in Sources */,
+				1B8ECE7C1566F4DB00FEA7C8 /* HappyCampfire.m in Sources */,
+				1B8ECE7D1566F4DB00FEA7C8 /* HCMessage.m in Sources */,
+				1B8ECE7E1566F4DB00FEA7C8 /* HCRoom.m in Sources */,
+				1B8ECE7F1566F4DB00FEA7C8 /* HCUploadFile.m in Sources */,
+				1B8ECE801566F4DB00FEA7C8 /* HCUser.m in Sources */,
+				1B8ECE811566F4DB00FEA7C8 /* NSObject+SBJSON.m in Sources */,
+				1B8ECE821566F4DB00FEA7C8 /* NSString+SBJSON.m in Sources */,
+				1B8ECE831566F4DB00FEA7C8 /* SBJSON.m in Sources */,
+				1B8ECE841566F4DB00FEA7C8 /* SBJsonBase.m in Sources */,
+				1B8ECE851566F4DB00FEA7C8 /* SBJsonParser.m in Sources */,
+				1B8ECE861566F4DB00FEA7C8 /* SBJsonWriter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C165DFE840E0CC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1DDD58140DA1D0A300B32029 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1DDD58150DA1D0A300B32029 /* English */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = saucy_tunes_Prefix.pch;
+				INFOPLIST_FILE = "campfireTunes-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = "saucy-tunes";
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = saucy_tunes_Prefix.pch;
+				INFOPLIST_FILE = "campfireTunes-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_NAME = "saucy-tunes";
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				ONLY_ACTIVE_ARCH = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "CampfireTunes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "campfire-tunes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
