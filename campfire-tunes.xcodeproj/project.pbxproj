@@ -34,6 +34,7 @@
 		1B8ECE841566F4DB00FEA7C8 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE6F1566F4DB00FEA7C8 /* SBJsonBase.m */; };
 		1B8ECE851566F4DB00FEA7C8 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE711566F4DB00FEA7C8 /* SBJsonParser.m */; };
 		1B8ECE861566F4DB00FEA7C8 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE731566F4DB00FEA7C8 /* SBJsonWriter.m */; };
+		1B8ECECE1566FCA600FEA7C8 /* CampfireTunes.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1B8ECECD1566FCA600FEA7C8 /* CampfireTunes.icns */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -96,6 +97,7 @@
 		1B8ECE711566F4DB00FEA7C8 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonParser.m; path = HappyCampfire/SBJsonParser.m; sourceTree = "<group>"; };
 		1B8ECE721566F4DB00FEA7C8 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = HappyCampfire/SBJsonWriter.h; sourceTree = "<group>"; };
 		1B8ECE731566F4DB00FEA7C8 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = HappyCampfire/SBJsonWriter.m; sourceTree = "<group>"; };
+		1B8ECECD1566FCA600FEA7C8 /* CampfireTunes.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = CampfireTunes.icns; path = Resources/MacOS/CampfireTunes.icns; sourceTree = "<group>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -237,6 +239,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1B8ECECD1566FCA600FEA7C8 /* CampfireTunes.icns */,
 				8D1107310486CEB800E47090 /* campfireTunes-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
@@ -305,6 +308,7 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
+				1B8ECECE1566FCA600FEA7C8 /* CampfireTunes.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
