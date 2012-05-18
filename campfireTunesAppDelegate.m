@@ -59,10 +59,11 @@
 }
 
 - (BOOL)preferencesSet {
-	NSLog(@"Checking preferences: campfireName: %@, campfireAuthToken: %@, campfireRoomID: %@", 
+	NSLog(@"Checking preferences: campfireName: %@, campfireAuthToken: %@, campfireRoomID: %@, campfireRoomTitle: %@", 
 		  [self.prefs stringForKey:@"campfireName"],
 		  [self.prefs stringForKey:@"campfireAuthToken"],
-		  [self.prefs stringForKey:@"campfireRoomID"]);
+		  [self.prefs stringForKey:@"campfireRoomID"],
+		  [self.prefs stringForKey:@"campfireRoomTitle"]);
 	return [self.prefs stringForKey:@"campfireName"] && 
 			[self.prefs stringForKey:@"campfireAuthToken"] && 
 			[self.prefs stringForKey:@"campfireRoomID"];
@@ -94,6 +95,7 @@
 		NSLog(@"Have campfire room list in preferences");
 		[self.prefsRooms addItemsWithTitles:[self.prefs objectForKey:@"campfireRoomList"]];
 		[self.prefsRooms setEnabled:YES];
+		[self.prefsRooms selectItemWithTitle:[self.prefs stringForKey:@"campfireRoomTitle"]];
 		[self.prefsListBtn setEnabled:YES];
 	} else if (camp && token) {
 		NSLog(@"No rooms in prefs, but name and token are, refreshing rooms list");
@@ -118,6 +120,7 @@
 		NSMutableArray *rooms = [self.prefs objectForKey:@"campfireRooms"];
 		for (id room in rooms) {
 			if ( [title isEqualToString:[room objectForKey:@"name"]] ) {
+				NSLog(@"ID for %@ is %@", title, [room objectForKey:@"roomID"]);
 				return [room objectForKey:@"roomID"];
 			}
 		}
@@ -161,6 +164,9 @@
 		[self.prefsRooms removeAllItems];
 		[self.prefs setObject:titles forKey:@"campfireRoomList"];
 		[self.prefsRooms addItemsWithTitles:titles];
+		if ( [self.prefs stringForKey:@"campfireRoomTitle"] != nil ) {
+			[self.prefsRooms selectItemWithTitle:[self.prefs stringForKey:@"campfireRoomTitle"]];
+		}
 		[self.prefsRooms setEnabled:YES];
 		[self.prefsSave setEnabled:YES];
 	}];
@@ -169,15 +175,21 @@
 - (void)saveCampAndTokenPrefs {	
 	NSString *camp = [self.prefsCampName stringValue];
 	NSString *auth = [self.prefsAuthToken stringValue];
-	NSString *roomID = [self getRoomIDForTitle:[self.prefsRooms titleOfSelectedItem]];
 	[self.prefs setObject:camp forKey:@"campfireName"];
 	[self.prefs setObject:auth forKey:@"campfireAuthToken"];
+}
+
+- (void)saveRoomPrefs {
+	NSString *roomID = [self getRoomIDForTitle:[self.prefsRooms titleOfSelectedItem]];
 	[self.prefs setObject:roomID forKey:@"campfireRoomID"];
+	[self.prefs setObject:[self.prefsRooms titleOfSelectedItem] forKey:@"campfireRoomTitle"];
 }
 
 - (IBAction) savePreferencesPressed:(id) sender {
 	NSLog(@"Saving preferences...");
 	NSLog(@"%@", self.prefs);
+	[self saveCampAndTokenPrefs];
+	[self saveRoomPrefs];
 	[self closePreferences];
 }
 

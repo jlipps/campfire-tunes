@@ -60,6 +60,7 @@
 - (void) openPreferences;
 - (void) closePreferences;
 - (void) saveCampAndTokenPrefs;
+- (void) saveRoomPrefs;
 - (void) doCampfireAuth;
 - (void) doCampfireRoomJoin;
 - (void) setRooms;
