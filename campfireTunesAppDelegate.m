@@ -282,7 +282,7 @@
 				NSString *roomID = [self.prefs stringForKey:@"campfireRoomID"];
 				[self updateStatus:@"Sending track to Campfire..."];
 				NSLog(@"Notifying campfire of new track");
-				NSString *campfireText = [NSString stringWithFormat:@"*playing %@, by %@ (from '%@')*",
+				NSString *campfireText = [NSString stringWithFormat:@":notes:  %@   :guitar:  %@   :dvd:  %@",
 										  self.currentName, self.currentArtist, self.currentAlbum];
 				[self.campfire sendText:campfireText toRoom:roomID 
 				 completionHandler:^(HCMessage *message, NSError *error){
