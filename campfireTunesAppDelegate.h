@@ -15,6 +15,7 @@
 	NSTextField *statusLabel;
 	NSTextField *trackName;
 	NSTextField *trackInfo;
+	NSTextField *trackAlbum;
 	NSPanel *preferences;
 	NSTextField *prefsCampName;
 	NSTextField *prefsAuthToken;
@@ -36,6 +37,7 @@
 @property (assign) IBOutlet NSTextField *statusLabel;
 @property (assign) IBOutlet NSTextField *trackName;
 @property (assign) IBOutlet NSTextField *trackInfo;
+@property (assign) IBOutlet NSTextField *trackAlbum;
 @property (assign) IBOutlet NSPanel *preferences;
 @property (assign) IBOutlet NSTextField *prefsCampName;
 @property (assign) IBOutlet NSTextField *prefsAuthToken;

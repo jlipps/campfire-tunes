@@ -14,6 +14,7 @@
 @synthesize statusLabel;
 @synthesize trackName;
 @synthesize trackInfo;
+@synthesize trackAlbum;
 @synthesize preferences;
 @synthesize prefsCampName;
 @synthesize prefsAuthToken;
@@ -281,7 +282,6 @@
 				self.currentArtist = [NSString stringWithString:[newTrack artist]];
 				BOOL prefsDiff = YES;
 				if ([self.prefs stringForKey:@"lastSentName"] != nil) {
-					NSLog(@"Got a lastSentName pref: %@", [self.prefs stringForKey:@"lastSentName"]);
 					NSString *pName = [self.prefs stringForKey:@"lastSentName"];
 					NSString *pAlbum = [self.prefs stringForKey:@"lastSentAlbum"];
 					NSString *pArtist = [self.prefs stringForKey:@"lastSentArtist"];
@@ -328,7 +328,8 @@
 - (void)updateTrackWithName: (NSString *)name withArtist:(NSString *)artist withAlbum:(NSString *)album {
 	[self.trackName setStringValue:name];
 	NSString *info = [NSString stringWithFormat:@"by %@, (from %@)", artist, album];
-	[self.trackInfo setStringValue:info];
+	[self.trackInfo setStringValue:artist];
+	[self.trackAlbum setStringValue:album];
 }
 
 - (void)clearTrackInfo {
