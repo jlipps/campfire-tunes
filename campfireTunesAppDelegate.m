@@ -271,28 +271,45 @@
 		} else {
 			[self updateStatus:@"Connected to Campfire"];
 			NSLog(@"Playing track: %@ from %@ by %@", [newTrack name], [newTrack album], [newTrack artist]);
-			BOOL different = ![self.currentName isEqualToString:[newTrack name]];
-			different = different || ![self.currentAlbum isEqualToString:[newTrack album]];
-			different = different || ![self.currentArtist isEqualToString:[newTrack artist]];
-			if (different) {
-				NSLog(@"Track is new");
+			BOOL diff = ![self.currentName isEqualToString:[newTrack name]];
+			diff = diff || ![self.currentAlbum isEqualToString:[newTrack album]];
+			diff = diff || ![self.currentArtist isEqualToString:[newTrack artist]];
+			if (diff) {
+				NSLog(@"Track is not the same as last track this run");				
 				self.currentName = [NSString stringWithString:[newTrack name]];
 				self.currentAlbum = [NSString stringWithString:[newTrack album]];
 				self.currentArtist = [NSString stringWithString:[newTrack artist]];
-				NSString *roomID = [self.prefs stringForKey:@"campfireRoomID"];
-				[self updateStatus:@"Sending track to Campfire..."];
-				NSLog(@"Notifying campfire of new track");
-				NSString *campfireText = [NSString stringWithFormat:@":notes:  %@   :guitar:  %@   :dvd:  %@",
-										  self.currentName, self.currentArtist, self.currentAlbum];
-				[self.campfire sendText:campfireText toRoom:roomID 
-				 completionHandler:^(HCMessage *message, NSError *error){
-					 NSLog(@"Sent [%@] to campfire", message);
-					 NSLog(@"Error: %@", error);
-					 [self updateStatus:@"...sent!"];
-				 }];
+				BOOL prefsDiff = YES;
+				if ([self.prefs stringForKey:@"lastSentName"] != nil) {
+					NSLog(@"Got a lastSentName pref: %@", [self.prefs stringForKey:@"lastSentName"]);
+					NSString *pName = [self.prefs stringForKey:@"lastSentName"];
+					NSString *pAlbum = [self.prefs stringForKey:@"lastSentAlbum"];
+					NSString *pArtist = [self.prefs stringForKey:@"lastSentArtist"];
+					prefsDiff = ![pName isEqualToString:self.currentName];
+					prefsDiff = prefsDiff || ![pAlbum isEqualToString:self.currentAlbum];
+					prefsDiff = prefsDiff || ![pArtist isEqualToString:self.currentArtist];
+				}
+				if(!prefsDiff) {
+					NSLog(@"This is the same track we uploaded last time, doing nothing");
+				} else {
+					NSString *roomID = [self.prefs stringForKey:@"campfireRoomID"];
+					[self updateStatus:@"Sending track..."];
+					NSLog(@"Notifying campfire of new track");
+					NSString *campfireText = [NSString stringWithFormat:@":notes:  %@   :guitar:  %@   :dvd:  %@",
+											  self.currentName, self.currentArtist, self.currentAlbum];
+					[self.campfire sendText:campfireText toRoom:roomID 
+					 completionHandler:^(HCMessage *message, NSError *error){
+						 NSLog(@"Sent [%@] to campfire", message);
+						 NSLog(@"Error: %@", error);
+						 [self updateStatus:@"Sending track...done!"];
+						 [self.prefs setObject:self.currentName forKey:@"lastSentName"];
+						 [self.prefs setObject:self.currentAlbum forKey:@"lastSentAlbum"];
+						 [self.prefs setObject:self.currentArtist forKey:@"lastSentArtist"];
+					 }];
+				}				
 				NSLog(@"Current track now is: %@, %@, %@", self.currentName, self.currentAlbum, self.currentArtist);
 			} else {
-				NSLog(@"Song the same, doing nothing");
+				NSLog(@"Track is the same, doing nothing");
 			}
 			[self updateTrackWithName:self.currentName withArtist:self.currentArtist withAlbum:self.currentAlbum];
 		}
