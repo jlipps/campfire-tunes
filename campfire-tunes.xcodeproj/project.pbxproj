@@ -50,6 +50,7 @@
 		1B6F6BC81566AEEB00B5AF2A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		1B6F6BCA1566AEFA00B5AF2A /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		1B6F6C641566B38F00B5AF2A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		1B77EC94156A9273009991E1 /* Spotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spotify.h; sourceTree = "<group>"; };
 		1B8ECE421566F4B600FEA7C8 /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
 		1B8ECE431566F4B600FEA7C8 /* campfireTunesAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = campfireTunesAppDelegate.h; sourceTree = "<group>"; };
 		1B8ECE441566F4B600FEA7C8 /* campfireTunesAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = campfireTunesAppDelegate.m; sourceTree = "<group>"; };
@@ -126,6 +127,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1B77EC94156A9273009991E1 /* Spotify.h */,
 				1B8ECE421566F4B600FEA7C8 /* iTunes.h */,
 				1B8ECE431566F4B600FEA7C8 /* campfireTunesAppDelegate.h */,
 				1B8ECE441566F4B600FEA7C8 /* campfireTunesAppDelegate.m */,

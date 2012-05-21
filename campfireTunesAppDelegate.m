@@ -262,6 +262,15 @@
 	[self update];
 }
 
+- (NSInteger)getITunesRatingInStars:(iTunesTrack *)track {
+	// returns 0 - 5
+	if ([track ratingKind] == iTunesERtKUser) {
+		NSInteger rating = [track rating];
+		return rating / 20;
+	}
+	return 0;
+}
+
 - (void)update {
 	NSLog(@"Updating...");
 	if ([player isRunning]) {
@@ -295,8 +304,12 @@
 					NSString *roomID = [self.prefs stringForKey:@"campfireRoomID"];
 					[self updateStatus:@"Sending track..."];
 					NSLog(@"Notifying campfire of new track");
-					NSString *campfireText = [NSString stringWithFormat:@":notes:  %@   :guitar:  %@   :dvd:  %@",
+					NSMutableString *campfireText = [NSMutableString stringWithFormat:@":notes:  %@   :guitar:  %@   :dvd:  %@",
 											  self.currentName, self.currentArtist, self.currentAlbum];
+					NSInteger rating = [self getITunesRatingInStars:newTrack];
+					for (int i=0; i < rating; i++) {
+						[campfireText appendString:@" :star:"];
+					}
 					[self.campfire sendText:campfireText toRoom:roomID 
 					 completionHandler:^(HCMessage *message, NSError *error){
 						 NSLog(@"Sent [%@] to campfire", message);

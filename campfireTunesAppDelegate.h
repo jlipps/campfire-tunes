@@ -72,6 +72,7 @@
 - (void) timerUpdate:(NSTimer*) timer;
 - (void) update;
 - (void) updateStatus: (NSString *)msg;
+- (NSInteger) getITunesRatingInStars:(iTunesTrack *)track;
 - (void) updateTrackWithName: (NSString *)name withArtist:(NSString *)artist withAlbum:(NSString *)album;
 - (void) clearTrackInfo;
 - (void) prefPaneFieldDidChange:(NSNotification *)aNotification;
