@@ -305,18 +305,22 @@
 											  self.currentName, self.currentArtist, 
 											  self.currentAlbum, [newTrack campfireStarEmoji],
 											  [newTrack url]];
-					if (self.debug) {
-						NSLog(@"Fake-sent [%@] to campfire", campfireText);
+					if ([self.currentAlbum hasPrefix:@"spotify:user"]) {
+						NSLog(@"Not sending, this is an ad!");
 					} else {
-						[self.campfire sendText:campfireText toRoom:roomID 
-						 completionHandler:^(HCMessage *message, NSError *error){
-							 NSLog(@"Sent [%@] to campfire", message);
-							 NSLog(@"Error: %@", error);
-							 [self updateStatus:@"Sending track...done!"];
-							 [self.prefs setObject:self.currentName forKey:@"lastSentName"];
-							 [self.prefs setObject:self.currentAlbum forKey:@"lastSentAlbum"];
-							 [self.prefs setObject:self.currentArtist forKey:@"lastSentArtist"];
-						 }];
+						if (self.debug) {
+							NSLog(@"Fake-sent [%@] to campfire", campfireText);
+						} else {
+							[self.campfire sendText:campfireText toRoom:roomID 
+							 completionHandler:^(HCMessage *message, NSError *error){
+								 NSLog(@"Sent [%@] to campfire", message);
+								 NSLog(@"Error: %@", error);
+								 [self updateStatus:@"Sending track...done!"];
+								 [self.prefs setObject:self.currentName forKey:@"lastSentName"];
+								 [self.prefs setObject:self.currentAlbum forKey:@"lastSentAlbum"];
+								 [self.prefs setObject:self.currentArtist forKey:@"lastSentArtist"];
+							 }];
+						}
 					}
 				}				
 				NSLog(@"Current track now is: %@, %@, %@", self.currentName, self.currentAlbum, self.currentArtist);
