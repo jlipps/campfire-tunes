@@ -46,12 +46,12 @@
 @property (assign) IBOutlet NSButton *prefsSave;
 @property (assign) IBOutlet NSButton *prefsListBtn;
 @property (assign) IBOutlet NSPopUpButton *prefsRooms;
-@property (assign) PlayerApplication *player;
+@property (retain) PlayerApplication *player;
 @property (assign) NSTimer *timer;
 @property (assign) NSTimer *playerTimer;
-@property (copy autorelease) NSString *currentName;
-@property (copy autorelease) NSString *currentAlbum;
-@property (copy autorelease) NSString *currentArtist;
+@property (copy) NSString *currentName;
+@property (copy) NSString *currentAlbum;
+@property (copy) NSString *currentArtist;
 @property (assign) HappyCampfire *campfire;
 @property (assign) BOOL campfireIsAuthed;
 @property (assign) NSUserDefaults *prefs;

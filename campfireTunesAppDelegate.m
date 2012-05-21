@@ -234,7 +234,7 @@
 		[self.player release];
 		self.player = p;
 		NSString *msg = [NSString stringWithFormat:@"Found %@", [self.player name]];
-		NSLog(msg);
+		NSLog(@"%@", msg);
 		[self updateStatus:msg];
 		[self.playerTimer invalidate];
 		[self startUpdateLoop];
@@ -270,9 +270,9 @@
 }
 - (void)update {
 	NSLog(@"Updating...");
-	if ([player isRunning]) {
-		PlayerTrack *newTrack = [player currentTrack];
-		if ([newTrack name] == nil || ![player isPlaying]) {
+	if ([self.player isRunning]) {
+		PlayerTrack *newTrack = [self.player currentTrack];
+		if ([newTrack name] == nil || ![self.player isPlaying]) {
 			[self updateStatus:@"You need to play something!"];
 			[self clearTrackInfo];
 		} else {
