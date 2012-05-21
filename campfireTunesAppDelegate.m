@@ -37,7 +37,7 @@
 	self.currentName = @"";
 	self.currentAlbum = @"";
 	self.currentArtist = @"";
-	self.debug = YES;
+	self.debug = NO;//YES;
 	return self;
 }
 
@@ -228,11 +228,14 @@
 
 - (void)findPlayer {
 	[self updateStatus:@"Finding music player..."];
+	NSLog(@"Finding music player");
 	PlayerApplication *p = [PlayerApplication getActivePlayer];
 	if ( p != nil ) {
 		[self.player release];
 		self.player = p;
-		[self updateStatus:[NSString stringWithFormat:@"Found %@", [self.player name]]];
+		NSString *msg = [NSString stringWithFormat:@"Found %@", [self.player name]];
+		NSLog(msg);
+		[self updateStatus:msg];
 		[self.playerTimer invalidate];
 		[self startUpdateLoop];
 		
@@ -273,7 +276,7 @@
 			[self updateStatus:@"You need to play something!"];
 			[self clearTrackInfo];
 		} else {
-			[self updateStatus:@"Connected to Campfire"];
+			[self updateStatus:[NSString stringWithFormat:@"Connected to Campfire with %@", [self.player name]]];
 			NSLog(@"Playing track: %@ from %@ by %@", [newTrack name], [newTrack album], [newTrack artist]);
 			BOOL diff = ![self.currentName isEqualToString:[newTrack name]];
 			diff = diff || ![self.currentAlbum isEqualToString:[newTrack album]];
@@ -343,6 +346,7 @@
 - (void)clearTrackInfo {
 	[self.trackName setStringValue:@""];
 	[self.trackInfo setStringValue:@""];
+	[self.trackAlbum setStringValue:@""];
 }
 
 @end

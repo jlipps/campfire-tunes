@@ -39,7 +39,9 @@
 
 - (NSString *)url {
 	if (self.type == PlayerTypeSpotify) {
-		return [self.nativeTrack spotifyURL];
+		NSArray *chunks = [[self.nativeTrack spotifyUrl] componentsSeparatedByString: @":"];
+		NSString *track = [chunks objectAtIndex:([chunks count]-1)];
+		return [NSString stringWithFormat:@" http://open.spotify.com/track/%@", track];
 	} else {
 		return @"";
 	}
