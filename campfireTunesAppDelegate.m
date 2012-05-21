@@ -30,17 +30,20 @@
 @synthesize campfire;
 @synthesize campfireIsAuthed;
 @synthesize prefs;
+@synthesize debug;
 
 - (campfireTunesAppDelegate*)init {
-	[super init];
+	self = [super init];
 	self.currentName = @"";
 	self.currentAlbum = @"";
 	self.currentArtist = @"";
+	self.debug = YES;
 	return self;
 }
 
 - (void)dealloc {
 	[self.campfire dealloc];
+	[self.player dealloc];
 	[super dealloc];
 }
 
@@ -225,15 +228,16 @@
 
 - (void)findPlayer {
 	[self updateStatus:@"Finding music player..."];
-	iTunesApplication *iTunes = [SBApplication applicationWithBundleIdentifier:@"com.apple.iTunes"];
-	if ( [iTunes isRunning] ) {
-		self.player = iTunes;
-		[self updateStatus:@"Found iTunes"];
+	PlayerApplication *p = [PlayerApplication getActivePlayer];
+	if ( p != nil ) {
+		[self.player release];
+		self.player = p;
+		[self updateStatus:[NSString stringWithFormat:@"Found %@", [self.player name]]];
 		[self.playerTimer invalidate];
 		[self startUpdateLoop];
 		
 	} else {
-		[self updateStatus:@"Start iTunes!"];
+		[self updateStatus:@"Start iTunes or Spotify!"];
 		if (![self.playerTimer isValid]) {
 			self.playerTimer = [NSTimer scheduledTimerWithTimeInterval:3
 															target:self
@@ -261,21 +265,11 @@
 - (void)timerUpdate:(NSTimer *)timerObj {
 	[self update];
 }
-
-- (NSInteger)getITunesRatingInStars:(iTunesTrack *)track {
-	// returns 0 - 5
-	if ([track ratingKind] == iTunesERtKUser) {
-		NSInteger rating = [track rating];
-		return rating / 20;
-	}
-	return 0;
-}
-
 - (void)update {
 	NSLog(@"Updating...");
 	if ([player isRunning]) {
-		iTunesTrack *newTrack = [player currentTrack];
-		if ([newTrack name] == nil || [player playerState] != iTunesEPlSPlaying) {
+		PlayerTrack *newTrack = [player currentTrack];
+		if ([newTrack name] == nil || ![player isPlaying]) {
 			[self updateStatus:@"You need to play something!"];
 			[self clearTrackInfo];
 		} else {
@@ -304,21 +298,23 @@
 					NSString *roomID = [self.prefs stringForKey:@"campfireRoomID"];
 					[self updateStatus:@"Sending track..."];
 					NSLog(@"Notifying campfire of new track");
-					NSMutableString *campfireText = [NSMutableString stringWithFormat:@":notes:  %@   :guitar:  %@   :dvd:  %@",
-											  self.currentName, self.currentArtist, self.currentAlbum];
-					NSInteger rating = [self getITunesRatingInStars:newTrack];
-					for (int i=0; i < rating; i++) {
-						[campfireText appendString:@" :star:"];
+					NSString *campfireText = [NSString stringWithFormat:@":notes: %@ :guitar: %@ :dvd: %@%@%@",
+											  self.currentName, self.currentArtist, 
+											  self.currentAlbum, [newTrack campfireStarEmoji],
+											  [newTrack url]];
+					if (self.debug) {
+						NSLog(@"Fake-sent [%@] to campfire", campfireText);
+					} else {
+						[self.campfire sendText:campfireText toRoom:roomID 
+						 completionHandler:^(HCMessage *message, NSError *error){
+							 NSLog(@"Sent [%@] to campfire", message);
+							 NSLog(@"Error: %@", error);
+							 [self updateStatus:@"Sending track...done!"];
+							 [self.prefs setObject:self.currentName forKey:@"lastSentName"];
+							 [self.prefs setObject:self.currentAlbum forKey:@"lastSentAlbum"];
+							 [self.prefs setObject:self.currentArtist forKey:@"lastSentArtist"];
+						 }];
 					}
-					[self.campfire sendText:campfireText toRoom:roomID 
-					 completionHandler:^(HCMessage *message, NSError *error){
-						 NSLog(@"Sent [%@] to campfire", message);
-						 NSLog(@"Error: %@", error);
-						 [self updateStatus:@"Sending track...done!"];
-						 [self.prefs setObject:self.currentName forKey:@"lastSentName"];
-						 [self.prefs setObject:self.currentAlbum forKey:@"lastSentAlbum"];
-						 [self.prefs setObject:self.currentArtist forKey:@"lastSentArtist"];
-					 }];
 				}				
 				NSLog(@"Current track now is: %@, %@, %@", self.currentName, self.currentAlbum, self.currentArtist);
 			} else {
@@ -340,7 +336,6 @@
 
 - (void)updateTrackWithName: (NSString *)name withArtist:(NSString *)artist withAlbum:(NSString *)album {
 	[self.trackName setStringValue:name];
-	NSString *info = [NSString stringWithFormat:@"by %@, (from %@)", artist, album];
 	[self.trackInfo setStringValue:artist];
 	[self.trackAlbum setStringValue:album];
 }

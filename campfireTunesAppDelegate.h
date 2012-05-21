@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "iTunes.h"
+#import "PlayerApplication.h"
 #import "HappyCampfire/HappyCampfire.h"
 
 @interface campfireTunesAppDelegate : NSObject <NSApplicationDelegate> {
@@ -22,7 +22,7 @@
 	NSButton *prefsSave;
 	NSButton *prefsListBtn;
 	NSPopUpButton *prefsRooms;
-	SBApplication *player;
+	PlayerApplication *player;
 	NSTimer *timer;
 	NSTimer *playerTimer;
 	NSString *currentName;
@@ -31,8 +31,10 @@
 	HappyCampfire *campfire;
 	BOOL campfireIsAuthed;
 	NSUserDefaults *prefs;
+	BOOL debug;
 }
 
+@property (assign) BOOL debug;
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSTextField *statusLabel;
 @property (assign) IBOutlet NSTextField *trackName;
@@ -44,7 +46,7 @@
 @property (assign) IBOutlet NSButton *prefsSave;
 @property (assign) IBOutlet NSButton *prefsListBtn;
 @property (assign) IBOutlet NSPopUpButton *prefsRooms;
-@property (assign) SBApplication *player;
+@property (assign) PlayerApplication *player;
 @property (assign) NSTimer *timer;
 @property (assign) NSTimer *playerTimer;
 @property (copy autorelease) NSString *currentName;
@@ -72,7 +74,6 @@
 - (void) timerUpdate:(NSTimer*) timer;
 - (void) update;
 - (void) updateStatus: (NSString *)msg;
-- (NSInteger) getITunesRatingInStars:(iTunesTrack *)track;
 - (void) updateTrackWithName: (NSString *)name withArtist:(NSString *)artist withAlbum:(NSString *)album;
 - (void) clearTrackInfo;
 - (void) prefPaneFieldDidChange:(NSNotification *)aNotification;

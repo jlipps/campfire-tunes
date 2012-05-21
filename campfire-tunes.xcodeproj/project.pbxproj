@@ -13,6 +13,7 @@
 		1B6F6BC91566AEEB00B5AF2A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6F6BC81566AEEB00B5AF2A /* libz.dylib */; };
 		1B6F6BCB1566AEFA00B5AF2A /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6F6BCA1566AEFA00B5AF2A /* CoreServices.framework */; };
 		1B6F6C651566B38F00B5AF2A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6F6C641566B38F00B5AF2A /* libxml2.dylib */; };
+		1B77ECAB156AA009009991E1 /* PlayerApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B77ECAA156AA009009991E1 /* PlayerApplication.m */; };
 		1B8ECE451566F4B600FEA7C8 /* campfireTunesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE441566F4B600FEA7C8 /* campfireTunesAppDelegate.m */; };
 		1B8ECE471566F4BD00FEA7C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE461566F4BD00FEA7C8 /* main.m */; };
 		1B8ECE741566F4DB00FEA7C8 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE4B1566F4DB00FEA7C8 /* ASIDataCompressor.m */; };
@@ -51,6 +52,8 @@
 		1B6F6BCA1566AEFA00B5AF2A /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		1B6F6C641566B38F00B5AF2A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		1B77EC94156A9273009991E1 /* Spotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spotify.h; sourceTree = "<group>"; };
+		1B77ECA9156AA009009991E1 /* PlayerApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerApplication.h; sourceTree = "<group>"; };
+		1B77ECAA156AA009009991E1 /* PlayerApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerApplication.m; sourceTree = "<group>"; };
 		1B8ECE421566F4B600FEA7C8 /* iTunes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunes.h; sourceTree = "<group>"; };
 		1B8ECE431566F4B600FEA7C8 /* campfireTunesAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = campfireTunesAppDelegate.h; sourceTree = "<group>"; };
 		1B8ECE441566F4B600FEA7C8 /* campfireTunesAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = campfireTunesAppDelegate.m; sourceTree = "<group>"; };
@@ -131,6 +134,8 @@
 				1B8ECE421566F4B600FEA7C8 /* iTunes.h */,
 				1B8ECE431566F4B600FEA7C8 /* campfireTunesAppDelegate.h */,
 				1B8ECE441566F4B600FEA7C8 /* campfireTunesAppDelegate.m */,
+				1B77ECA9156AA009009991E1 /* PlayerApplication.h */,
+				1B77ECAA156AA009009991E1 /* PlayerApplication.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 				1B8ECE841566F4DB00FEA7C8 /* SBJsonBase.m in Sources */,
 				1B8ECE851566F4DB00FEA7C8 /* SBJsonParser.m in Sources */,
 				1B8ECE861566F4DB00FEA7C8 /* SBJsonWriter.m in Sources */,
+				1B77ECAB156AA009009991E1 /* PlayerApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
