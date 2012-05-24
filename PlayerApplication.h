@@ -48,7 +48,7 @@ typedef enum PlayerType PlayerType;
 @property (assign) PlayerType type;
 @property (assign) SBApplication *nativeApp;
 
-- (PlayerApplication *)init:(SBApplication *)app withPlayerType:(PlayerType)playerType;
+- (PlayerApplication *)initWithPlayerType:(PlayerType)playerType;
 - (BOOL) isRunning;
 - (BOOL) isPlaying;
 - (NSString *) name;

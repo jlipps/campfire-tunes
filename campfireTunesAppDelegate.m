@@ -42,8 +42,8 @@
 }
 
 - (void)dealloc {
-	[self.campfire dealloc];
-	[self.player dealloc];
+	[self.campfire release];
+	[self.player release];
 	[super dealloc];
 }
 
@@ -232,7 +232,7 @@
 	PlayerApplication *p = [PlayerApplication getActivePlayer];
 	if ( p != nil ) {
 		[self.player release];
-		self.player = p;
+		self.player = [p retain];
 		NSString *msg = [NSString stringWithFormat:@"Found %@", [self.player name]];
 		NSLog(@"%@", msg);
 		[self updateStatus:msg];
@@ -305,7 +305,8 @@
 											  self.currentName, self.currentArtist, 
 											  self.currentAlbum, [newTrack campfireStarEmoji],
 											  [newTrack url]];
-					if ([self.currentAlbum hasPrefix:@"spotify:user"]) {
+					if ([self.currentAlbum hasPrefix:@"spotify:user"] ||
+						[self.currentAlbum hasPrefix:@"http://"]) {
 						NSLog(@"Not sending, this is an ad!");
 					} else {
 						if (self.debug) {

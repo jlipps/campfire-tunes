@@ -90,10 +90,14 @@
 @synthesize type;
 @synthesize nativeApp;
 
-- (PlayerApplication *)init:(SBApplication *)app withPlayerType:(PlayerType)playerType {
+- (PlayerApplication *)initWithPlayerType:(PlayerType)playerType {
 	[super init];
-	self.nativeApp = app;
 	self.type = playerType;
+	if (self.type == PlayerTypeITunes) {
+		self.nativeApp = [SBApplication applicationWithBundleIdentifier:@"com.apple.iTunes"];
+	} else if (self.type == PlayerTypeSpotify) {
+		self.nativeApp = [SBApplication applicationWithBundleIdentifier:@"com.spotify.client"];
+	}
 	return self;
 }
 
@@ -133,11 +137,11 @@
 	SpotifyApplication *spotify = [SBApplication applicationWithBundleIdentifier:@"com.spotify.client"];
 	if ( [iTunes isRunning] || [spotify isRunning] ) {
 		if ( [spotify isRunning] && [spotify playerState] == SpotifyEPlSPlaying ) {
-			return [[PlayerApplication alloc] init:spotify withPlayerType:PlayerTypeSpotify];
+			return [[[PlayerApplication alloc] initWithPlayerType:PlayerTypeSpotify] autorelease];
 		} else if ( [iTunes isRunning] ) {
-			return [[PlayerApplication alloc] init:iTunes withPlayerType:PlayerTypeITunes];
+			return [[[PlayerApplication alloc] initWithPlayerType:PlayerTypeITunes] autorelease];
 		} else {
-			return [[PlayerApplication alloc] init:spotify withPlayerType:PlayerTypeSpotify];
+			return [[[PlayerApplication alloc] initWithPlayerType:PlayerTypeSpotify] autorelease];
 		}
 	}
 	return nil;

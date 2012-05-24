@@ -46,7 +46,7 @@
 @property (assign) IBOutlet NSButton *prefsSave;
 @property (assign) IBOutlet NSButton *prefsListBtn;
 @property (assign) IBOutlet NSPopUpButton *prefsRooms;
-@property (retain) PlayerApplication *player;
+@property (assign) PlayerApplication *player;
 @property (assign) NSTimer *timer;
 @property (assign) NSTimer *playerTimer;
 @property (copy) NSString *currentName;
