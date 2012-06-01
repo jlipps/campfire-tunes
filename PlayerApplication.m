@@ -7,6 +7,7 @@
 //
 
 #import "PlayerApplication.h"
+#import "NSImageExt.m" 
 
 
 @implementation PlayerTrack
@@ -31,6 +32,18 @@
 
 - (NSString *)album {
 	return [self.nativeTrack album];
+}
+
+- (NSImage *)artwork {
+	if (self.type == PlayerTypeSpotify) {
+		return [self.nativeTrack artwork];
+	} else if (self.type == PlayerTypeITunes) {
+		iTunesArtwork *artwork = [[self.nativeTrack artworks] objectAtIndex:0];
+		if (artwork != nil) {
+			return [artwork data];
+		}
+		return nil;
+	}
 }
 
 - (NSString *)name {

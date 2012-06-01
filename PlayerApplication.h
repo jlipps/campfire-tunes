@@ -30,6 +30,7 @@ typedef enum PlayerType PlayerType;
 - (PlayerTrack *)init:(id)track withPlayerType:(PlayerType)playerType;
 - (NSString *)artist;
 - (NSString *)album;
+- (NSImage *)artwork;
 - (NSString *)name;
 - (NSInteger)rating;
 - (BOOL)starred;

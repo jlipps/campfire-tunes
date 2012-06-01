@@ -77,5 +77,9 @@
 - (void) updateTrackWithName: (NSString *)name withArtist:(NSString *)artist withAlbum:(NSString *)album;
 - (void) clearTrackInfo;
 - (void) prefPaneFieldDidChange:(NSNotification *)aNotification;
+- (NSString *) pathForDataFile:(NSString *)fileName;
+- (NSString *) saveArtwork:(NSImage *)artwork withFileName:(NSString *)fileName;
+- (NSString *) deleteArtwork:(NSString *)fileName;
+- (NSString *)_sanitizeFileNameString:(NSString *)fileName;
 
 @end

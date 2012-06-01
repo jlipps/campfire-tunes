@@ -37,7 +37,7 @@
 	self.currentName = @"";
 	self.currentAlbum = @"";
 	self.currentArtist = @"";
-	self.debug = NO;//YES;
+	self.debug = NO;
 	return self;
 }
 
@@ -268,6 +268,12 @@
 - (void)timerUpdate:(NSTimer *)timerObj {
 	[self update];
 }
+
+- (NSString *)_sanitizeFileNameString:(NSString *)fileName {
+    NSCharacterSet* illegalFileNameCharacters = [NSCharacterSet characterSetWithCharactersInString:@"/\\?%*|\"<>"];
+    return [[fileName componentsSeparatedByCharactersInSet:illegalFileNameCharacters] componentsJoinedByString:@""];
+}
+
 - (void)update {
 	NSLog(@"Updating...");
 	if ([self.player isRunning]) {
@@ -278,8 +284,9 @@
 		} else {
 			[self updateStatus:[NSString stringWithFormat:@"Connected to Campfire with %@", [self.player name]]];
 			NSLog(@"Playing track: %@ from %@ by %@", [newTrack name], [newTrack album], [newTrack artist]);
+			BOOL albumDiff = ![self.currentAlbum isEqualToString:[newTrack album]];
 			BOOL diff = ![self.currentName isEqualToString:[newTrack name]];
-			diff = diff || ![self.currentAlbum isEqualToString:[newTrack album]];
+			diff = diff || albumDiff;
 			diff = diff || ![self.currentArtist isEqualToString:[newTrack artist]];
 			if (diff) {
 				NSLog(@"Track is not the same as last track this run");				
@@ -287,12 +294,14 @@
 				self.currentAlbum = [NSString stringWithString:[newTrack album]];
 				self.currentArtist = [NSString stringWithString:[newTrack artist]];
 				BOOL prefsDiff = YES;
+				BOOL prefsAlbumDiff = YES;
 				if ([self.prefs stringForKey:@"lastSentName"] != nil) {
 					NSString *pName = [self.prefs stringForKey:@"lastSentName"];
 					NSString *pAlbum = [self.prefs stringForKey:@"lastSentAlbum"];
 					NSString *pArtist = [self.prefs stringForKey:@"lastSentArtist"];
+					BOOL prefsAlbumDiff = ![pAlbum isEqualToString:self.currentAlbum];
 					prefsDiff = ![pName isEqualToString:self.currentName];
-					prefsDiff = prefsDiff || ![pAlbum isEqualToString:self.currentAlbum];
+					prefsDiff = prefsDiff || prefsAlbumDiff;
 					prefsDiff = prefsDiff || ![pArtist isEqualToString:self.currentArtist];
 				}
 				if(!prefsDiff) {
@@ -311,6 +320,9 @@
 					} else {
 						if (self.debug) {
 							NSLog(@"Fake-sent [%@] to campfire", campfireText);
+							[self.prefs setObject:self.currentName forKey:@"lastSentName"];
+							[self.prefs setObject:self.currentAlbum forKey:@"lastSentAlbum"];
+							[self.prefs setObject:self.currentArtist forKey:@"lastSentArtist"];
 						} else {
 							[self.campfire sendText:campfireText toRoom:roomID 
 							 completionHandler:^(HCMessage *message, NSError *error){
@@ -321,6 +333,34 @@
 								 [self.prefs setObject:self.currentAlbum forKey:@"lastSentAlbum"];
 								 [self.prefs setObject:self.currentArtist forKey:@"lastSentArtist"];
 							 }];
+						}
+						
+						if ( albumDiff && prefsAlbumDiff ) {
+							NSImage *artwork = [newTrack artwork];
+							if (artwork != nil) {
+								NSString *sArtist = [self _sanitizeFileNameString:self.currentArtist];
+								NSString *sAlbum = [self _sanitizeFileNameString:self.currentAlbum];
+								NSString *albumFileName = [NSString stringWithFormat:@"%@-%@.jpg", sArtist, sAlbum];
+								NSString *albumFullFileName = [self pathForDataFile:albumFileName];
+								[self saveArtwork:artwork withFileName:albumFileName];
+								if (self.debug) {
+									NSLog(@"Fake-sent album image to campfire");
+								} else {
+									[self updateStatus:@"Sending artwork..."];
+									NSLog(@"Sending artwork %@ to campfire", albumFileName);
+									[self.campfire postFile:albumFullFileName toRoom:roomID
+									 completionHandler:^(HCUploadFile *file, NSError *error) {
+										 NSLog(@"Posted [%@] to campfire", albumFullFileName);
+										 NSLog(@"Error: %@", error);
+										 [self updateStatus:@"Sending artwork...done!"];
+									}];
+								}
+								[self deleteArtwork:albumFileName];
+							} else {
+								NSLog(@"This track had no artwork, not sending any");
+							}
+						} else {
+							NSLog(@"We already sent in artwork for this album, doing nothing");
 						}
 					}
 				}				
@@ -352,6 +392,30 @@
 	[self.trackName setStringValue:@""];
 	[self.trackInfo setStringValue:@""];
 	[self.trackAlbum setStringValue:@""];
+}
+
+- (NSString *)pathForDataFile: (NSString *)fileName {
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+	NSString *folder = @"~/Library/Application Support/CampfireTunes/";
+	folder = [folder stringByExpandingTildeInPath];
+	
+	if ([fileManager fileExistsAtPath: folder] == NO) {
+		[fileManager createDirectoryAtPath: folder attributes: nil];
+	}
+
+	return [folder stringByAppendingPathComponent: fileName];    
+}
+
+- (NSString *) saveArtwork:(NSImage *)artwork withFileName:(NSString *)fileName {
+	NSString *fullFileName = [self pathForDataFile:fileName];
+	[artwork saveAsJpegWithName:fullFileName];
+}
+
+- (NSString *) deleteArtwork:(NSString *)fileName {
+	NSString *fullFileName = [self pathForDataFile:fileName];
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	[fileManager removeItemAtPath:fileName error:nil];
 }
 
 @end
