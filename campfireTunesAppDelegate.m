@@ -408,7 +408,7 @@
 
 - (NSString *) saveArtwork:(NSImage *)artwork withFileName:(NSString *)fileName {
 	NSString *fullFileName = [self pathForDataFile:fileName];
-	NSSize size = NSMakeSize(120.0, 120.0);
+	NSSize size = NSMakeSize(150.0, 150.0);
 	[artwork saveAsJpegWithName:fullFileName andSize:size];
 }
 
