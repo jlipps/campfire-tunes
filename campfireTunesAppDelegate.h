@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "PlayerApplication.h"
 #import "HappyCampfire/HappyCampfire.h"
+#import "NSImage+MGCropExtensions.h"
 
 @interface campfireTunesAppDelegate : NSObject <NSApplicationDelegate> {
     NSWindow *window;

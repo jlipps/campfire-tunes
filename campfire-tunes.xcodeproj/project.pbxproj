@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B2C268715795BF90031BB3D /* NSImageExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B2C268615795BF90031BB3D /* NSImageExt.m */; };
+		1B3F1440157D331D00E36C2B /* NSImage+MGCropExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3F143F157D331D00E36C2B /* NSImage+MGCropExtensions.m */; };
 		1B6F512315658FE400093430 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6F512215658FE400093430 /* ScriptingBridge.framework */; };
 		1B6F6B541565C8CC00B5AF2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6F6B531565C8CC00B5AF2A /* Foundation.framework */; };
 		1B6F6BC71566AEC000B5AF2A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6F6BC61566AEC000B5AF2A /* SystemConfiguration.framework */; };
@@ -47,6 +48,8 @@
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		1B2C268615795BF90031BB3D /* NSImageExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSImageExt.m; sourceTree = "<group>"; };
+		1B3F143E157D331D00E36C2B /* NSImage+MGCropExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+MGCropExtensions.h"; sourceTree = "<group>"; };
+		1B3F143F157D331D00E36C2B /* NSImage+MGCropExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+MGCropExtensions.m"; sourceTree = "<group>"; };
 		1B6F512215658FE400093430 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
 		1B6F6B531565C8CC00B5AF2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1B6F6BC61566AEC000B5AF2A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -241,6 +244,8 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1B3F143E157D331D00E36C2B /* NSImage+MGCropExtensions.h */,
+				1B3F143F157D331D00E36C2B /* NSImage+MGCropExtensions.m */,
 				1B8ECE461566F4BD00FEA7C8 /* main.m */,
 			);
 			name = "Other Sources";
@@ -352,6 +357,7 @@
 				1B8ECE861566F4DB00FEA7C8 /* SBJsonWriter.m in Sources */,
 				1B77ECAB156AA009009991E1 /* PlayerApplication.m in Sources */,
 				1B2C268715795BF90031BB3D /* NSImageExt.m in Sources */,
+				1B3F1440157D331D00E36C2B /* NSImage+MGCropExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

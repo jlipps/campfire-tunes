@@ -7,6 +7,7 @@
 //
 
 #import "campfireTunesAppDelegate.h"
+#import "NSImageExt.m"
 
 @implementation campfireTunesAppDelegate
 
@@ -281,7 +282,7 @@
 		if ([newTrack name] == nil || ![self.player isPlaying]) {
 			[self updateStatus:@"You need to play something!"];
 			[self clearTrackInfo];
-		} else {
+		} else if (![newTrack isAdvertisement]) {
 			[self updateStatus:[NSString stringWithFormat:@"Connected to Campfire with %@", [self.player name]]];
 			NSLog(@"Playing track: %@ from %@ by %@", [newTrack name], [newTrack album], [newTrack artist]);
 			BOOL albumDiff = ![self.currentAlbum isEqualToString:[newTrack album]];
@@ -314,54 +315,49 @@
 											  self.currentName, self.currentArtist, 
 											  self.currentAlbum, [newTrack campfireStarEmoji],
 											  [newTrack url]];
-					if ([self.currentAlbum hasPrefix:@"spotify:user"] ||
-						[self.currentAlbum hasPrefix:@"http://"]) {
-						NSLog(@"Not sending, this is an ad!");
+					if (self.debug) {
+						NSLog(@"Fake-sent [%@] to campfire", campfireText);
+						[self.prefs setObject:self.currentName forKey:@"lastSentName"];
+						[self.prefs setObject:self.currentAlbum forKey:@"lastSentAlbum"];
+						[self.prefs setObject:self.currentArtist forKey:@"lastSentArtist"];
 					} else {
-						if (self.debug) {
-							NSLog(@"Fake-sent [%@] to campfire", campfireText);
-							[self.prefs setObject:self.currentName forKey:@"lastSentName"];
-							[self.prefs setObject:self.currentAlbum forKey:@"lastSentAlbum"];
-							[self.prefs setObject:self.currentArtist forKey:@"lastSentArtist"];
-						} else {
-							[self.campfire sendText:campfireText toRoom:roomID 
-							 completionHandler:^(HCMessage *message, NSError *error){
-								 NSLog(@"Sent [%@] to campfire", message);
-								 NSLog(@"Error: %@", error);
-								 [self updateStatus:@"Sending track...done!"];
-								 [self.prefs setObject:self.currentName forKey:@"lastSentName"];
-								 [self.prefs setObject:self.currentAlbum forKey:@"lastSentAlbum"];
-								 [self.prefs setObject:self.currentArtist forKey:@"lastSentArtist"];
-							 }];
-						}
-						
-						if ( albumDiff && prefsAlbumDiff ) {
-							NSImage *artwork = [newTrack artwork];
-							if (artwork != nil) {
-								NSString *sArtist = [self _sanitizeFileNameString:self.currentArtist];
-								NSString *sAlbum = [self _sanitizeFileNameString:self.currentAlbum];
-								NSString *albumFileName = [NSString stringWithFormat:@"%@-%@.jpg", sArtist, sAlbum];
-								NSString *albumFullFileName = [self pathForDataFile:albumFileName];
-								[self saveArtwork:artwork withFileName:albumFileName];
-								if (self.debug) {
-									NSLog(@"Fake-sent album image to campfire");
-								} else {
-									[self updateStatus:@"Sending artwork..."];
-									NSLog(@"Sending artwork %@ to campfire", albumFileName);
-									[self.campfire postFile:albumFullFileName toRoom:roomID
-									 completionHandler:^(HCUploadFile *file, NSError *error) {
-										 NSLog(@"Posted [%@] to campfire", albumFullFileName);
-										 NSLog(@"Error: %@", error);
-										 [self updateStatus:@"Sending artwork...done!"];
-									}];
-								}
-								[self deleteArtwork:albumFileName];
+						[self.campfire sendText:campfireText toRoom:roomID 
+						 completionHandler:^(HCMessage *message, NSError *error){
+							 NSLog(@"Sent [%@] to campfire", message);
+							 NSLog(@"Error: %@", error);
+							 [self updateStatus:@"Sending track...done!"];
+							 [self.prefs setObject:self.currentName forKey:@"lastSentName"];
+							 [self.prefs setObject:self.currentAlbum forKey:@"lastSentAlbum"];
+							 [self.prefs setObject:self.currentArtist forKey:@"lastSentArtist"];
+						 }];
+					}
+					
+					if ( albumDiff && prefsAlbumDiff ) {
+						NSImage *artwork = [newTrack artwork];
+						if (artwork != nil) {
+							NSString *sArtist = [self _sanitizeFileNameString:self.currentArtist];
+							NSString *sAlbum = [self _sanitizeFileNameString:self.currentAlbum];
+							NSString *albumFileName = [NSString stringWithFormat:@"%@-%@.jpg", sArtist, sAlbum];
+							NSString *albumFullFileName = [self pathForDataFile:albumFileName];
+							[self saveArtwork:artwork withFileName:albumFileName];
+							if (self.debug) {
+								NSLog(@"Fake-sent album image to campfire");
 							} else {
-								NSLog(@"This track had no artwork, not sending any");
+								[self updateStatus:@"Sending artwork..."];
+								NSLog(@"Sending artwork %@ to campfire", albumFileName);
+								[self.campfire postFile:albumFullFileName toRoom:roomID
+								 completionHandler:^(HCUploadFile *file, NSError *error) {
+									 NSLog(@"Posted [%@] to campfire", albumFullFileName);
+									 NSLog(@"Error: %@", error);
+									 [self updateStatus:@"Sending artwork...done!"];
+								}];
 							}
+							[self deleteArtwork:albumFileName];
 						} else {
-							NSLog(@"We already sent in artwork for this album, doing nothing");
+							NSLog(@"This track had no artwork, not sending any");
 						}
+					} else {
+						NSLog(@"We already sent in artwork for this album, doing nothing");
 					}
 				}				
 				NSLog(@"Current track now is: %@, %@, %@", self.currentName, self.currentAlbum, self.currentArtist);
@@ -369,6 +365,9 @@
 				NSLog(@"Track is the same, doing nothing");
 			}
 			[self updateTrackWithName:self.currentName withArtist:self.currentArtist withAlbum:self.currentAlbum];
+		} else {
+			NSLog(@"Found advertisement, doing nothing.");
+			[self updateStatus:@"Skipping advertisement..."];
 		}
 	} else {
 		[self clearTrackInfo];
@@ -409,7 +408,8 @@
 
 - (NSString *) saveArtwork:(NSImage *)artwork withFileName:(NSString *)fileName {
 	NSString *fullFileName = [self pathForDataFile:fileName];
-	[artwork saveAsJpegWithName:fullFileName];
+	NSSize size = NSMakeSize(120.0, 120.0);
+	[artwork saveAsJpegWithName:fullFileName andSize:size];
 }
 
 - (NSString *) deleteArtwork:(NSString *)fileName {

@@ -36,6 +36,7 @@ typedef enum PlayerType PlayerType;
 - (BOOL)starred;
 - (NSString *)url;
 - (NSString *)campfireStarEmoji;
+- (BOOL)isAdvertisement;
 
 
 @end

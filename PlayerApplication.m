@@ -95,6 +95,16 @@
 	return emoji;	
 }
 
+- (BOOL)isAdvertisement {
+	if (self.type == PlayerTypeSpotify) {
+		NSString *album = [self album];
+		return [album hasPrefix:@"spotify:user"] ||
+				[album hasPrefix:@"http:"] ||
+				[album hasPrefix:@"spotify:ad"];
+	}
+	return NO;
+}
+
 @end
 
 
