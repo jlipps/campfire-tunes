@@ -398,6 +398,7 @@
 				INFOPLIST_FILE = "campfireTunes-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				PRODUCT_NAME = campfireTunes;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -408,10 +409,11 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = saucy_tunes_Prefix.pch;
+				GCC_PREFIX_HEADER = campfireTunesRelease_Prefix.pch;
 				INFOPLIST_FILE = "campfireTunes-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				PRODUCT_NAME = "saucy-tunes";
+				PRODUCT_NAME = campfireTunes;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -424,6 +426,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
@@ -437,6 +440,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
 			};

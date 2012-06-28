@@ -13,8 +13,8 @@
 @class PlayerTrack, PlayerApplication;
 
 enum PlayerType {
-	PlayerTypeITunes = 'iTunes',
-	PlayerTypeSpotify = 'Spotify'
+	PlayerTypeITunes = 'i',
+	PlayerTypeSpotify = 's'
 };
 typedef enum PlayerType PlayerType;
 

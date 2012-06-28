@@ -37,7 +37,8 @@
 
 -(void)dealloc
 {
-   [campfireURL release];
+    [campfireURL release];
+    [super dealloc];
 }
 
 -(NSString*)messageWithType:(NSString*)messageType andMessage:(NSString*)message

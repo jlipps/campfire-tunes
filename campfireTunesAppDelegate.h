@@ -79,8 +79,8 @@
 - (void) clearTrackInfo;
 - (void) prefPaneFieldDidChange:(NSNotification *)aNotification;
 - (NSString *) pathForDataFile:(NSString *)fileName;
-- (NSString *) saveArtwork:(NSImage *)artwork withFileName:(NSString *)fileName;
-- (NSString *) deleteArtwork:(NSString *)fileName;
+- (void) saveArtwork:(NSImage *)artwork withFileName:(NSString *)fileName;
+- (void) deleteArtwork:(NSString *)fileName;
 - (NSString *)_sanitizeFileNameString:(NSString *)fileName;
 
 @end

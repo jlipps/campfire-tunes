@@ -38,7 +38,7 @@
 	self.currentName = @"";
 	self.currentAlbum = @"";
 	self.currentArtist = @"";
-	self.debug = NO;
+	self.debug = YES;
 	return self;
 }
 
@@ -406,16 +406,16 @@
 	return [folder stringByAppendingPathComponent: fileName];    
 }
 
-- (NSString *) saveArtwork:(NSImage *)artwork withFileName:(NSString *)fileName {
+- (void)saveArtwork:(NSImage *)artwork withFileName:(NSString *)fileName {
 	NSString *fullFileName = [self pathForDataFile:fileName];
 	NSSize size = NSMakeSize(150.0, 150.0);
 	[artwork saveAsJpegWithName:fullFileName andSize:size];
 }
 
-- (NSString *) deleteArtwork:(NSString *)fileName {
+- (void)deleteArtwork:(NSString *)fileName {
 	NSString *fullFileName = [self pathForDataFile:fileName];
 	NSFileManager *fileManager = [NSFileManager defaultManager];
-	[fileManager removeItemAtPath:fileName error:nil];
+	[fileManager removeItemAtPath:fullFileName error:nil];
 }
 
 @end
