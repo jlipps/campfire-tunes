@@ -1,8 +1,4 @@
-@interface NSImage(saveAsJpegWithName)
-- (void) saveAsJpegWithName:(NSString*) fileName;
-@end
-
-@implementation NSImage(saveAsJpegWithName)
+@implementation NSImage (SaveExtensions)
 
 - (void) saveAsJpegWithName:(NSString*) fileName andSize:(NSSize) size {
 	NSImage *sizedImage = [self imageScaledToFitSize:size];

@@ -43,6 +43,7 @@
     NSRect sourceRect;
     if (cropping) {
         float destX, destY;
+        BOOL foundResizeMethod = YES;
         if (resizeMethod == MGImageResizeCrop) {
             // Crop center
             destX = round((scaledWidth - targetWidth) / 2.0);
@@ -69,9 +70,14 @@
 				destX = round(scaledWidth - targetWidth);
 				destY = round((scaledHeight - targetHeight) / 2.0);
             }
+        } else {
+            foundResizeMethod = NO;
         }
-        sourceRect = NSMakeRect(destX / scaleFactor, destY / scaleFactor, 
+        
+        if (foundResizeMethod) {
+            sourceRect = NSMakeRect(destX / scaleFactor, destY / scaleFactor, 
                                 targetWidth / scaleFactor, targetHeight / scaleFactor);
+        }
     } else {
         sourceRect = NSMakeRect(0, 0, sourceWidth, sourceHeight);
 		dstRect.origin.x += (targetWidth - scaledWidth) / 2.0;

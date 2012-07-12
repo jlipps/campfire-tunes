@@ -37,8 +37,7 @@
 
 -(void)dealloc
 {
-    [campfireURL release];
-    [super dealloc];
+   [campfireURL release];
 }
 
 -(NSString*)messageWithType:(NSString*)messageType andMessage:(NSString*)message
@@ -113,7 +112,6 @@
    
    [request setCompletionBlock:^{
       SBJsonParser *parser = [[SBJsonParser new] autorelease];
-	   NSLog(@"%@", [request responseString]);
       
       id messageDict = [parser objectWithString:[request responseString]];
       HCMessage *message = [HCMessage messageWithDictionary:[messageDict objectForKey:@"message"]];

@@ -7,7 +7,7 @@
 //
 
 #import "PlayerApplication.h"
-#import "NSImageExt.m" 
+#import "NSImage+SaveExtensions.h"
 
 
 @implementation PlayerTrack
@@ -18,11 +18,12 @@
 - (PlayerTrack *)init:(id)track withPlayerType:(PlayerType)playerType {
 	self = [super init];
 	self.type = playerType;
-	self.nativeTrack = track;
+	self.nativeTrack = [track retain];
 	return self;
 }
 
 - (void)dealloc {
+    [self.nativeTrack release];
 	[super dealloc];
 }
 
@@ -121,10 +122,12 @@
 	} else if (self.type == PlayerTypeSpotify) {
 		self.nativeApp = [SBApplication applicationWithBundleIdentifier:@"com.spotify.client"];
 	}
+    [self.nativeApp retain];
 	return self;
 }
 
 - (void)dealloc {
+    [self.nativeApp release];
 	[super dealloc];
 }
 
@@ -160,11 +163,11 @@
 	SpotifyApplication *spotify = [SBApplication applicationWithBundleIdentifier:@"com.spotify.client"];
 	if ( [iTunes isRunning] || [spotify isRunning] ) {
 		if ( [spotify isRunning] && [spotify playerState] == SpotifyEPlSPlaying ) {
-			return [[[PlayerApplication alloc] initWithPlayerType:PlayerTypeSpotify] autorelease];
+			return [[PlayerApplication alloc] initWithPlayerType:PlayerTypeSpotify];
 		} else if ( [iTunes isRunning] ) {
-			return [[[PlayerApplication alloc] initWithPlayerType:PlayerTypeITunes] autorelease];
+			return [[PlayerApplication alloc] initWithPlayerType:PlayerTypeITunes];
 		} else {
-			return [[[PlayerApplication alloc] initWithPlayerType:PlayerTypeSpotify] autorelease];
+			return [[PlayerApplication alloc] initWithPlayerType:PlayerTypeSpotify];
 		}
 	}
 	return nil;

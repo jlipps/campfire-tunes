@@ -7,7 +7,6 @@
 //
 
 #import "campfireTunesAppDelegate.h"
-#import "NSImageExt.m"
 
 @implementation campfireTunesAppDelegate
 
@@ -38,13 +37,16 @@
 	self.currentName = @"";
 	self.currentAlbum = @"";
 	self.currentArtist = @"";
-	self.debug = YES;
+	self.debug = NO;
 	return self;
 }
 
 - (void)dealloc {
 	[self.campfire release];
-	[self.player release];
+    self.currentName = nil;
+    self.currentAlbum = nil;
+    self.currentArtist = nil;
+	self.player = nil;
 	[super dealloc];
 }
 
@@ -232,15 +234,22 @@
 	NSLog(@"Finding music player");
 	PlayerApplication *p = [PlayerApplication getActivePlayer];
 	if ( p != nil ) {
-		[self.player release];
-		self.player = [p retain];
+        if (self.player != nil) {
+            NSLog(@"Releasing old self.player, which was %@", self.player);
+            [self.player release];
+        }
+		self.player = p;
+        [self.player retain];
+        NSLog(@"Got new player, which is %@", self.player);
 		NSString *msg = [NSString stringWithFormat:@"Found %@", [self.player name]];
 		NSLog(@"%@", msg);
 		[self updateStatus:msg];
 		[self.playerTimer invalidate];
 		[self startUpdateLoop];
-		
 	} else {
+        if( self.player != nil ) {
+            [self.player release];
+        }
 		[self updateStatus:@"Start iTunes or Spotify!"];
 		if (![self.playerTimer isValid]) {
 			self.playerTimer = [NSTimer scheduledTimerWithTimeInterval:3
@@ -258,6 +267,7 @@
 }
 
 - (void)startUpdateLoop {
+    NSLog(@"In startUpdateLoop, player is %@", self.player);
 	[self update];
 	self.timer = [NSTimer scheduledTimerWithTimeInterval:3
 						target:self 
@@ -267,6 +277,7 @@
 }
 
 - (void)timerUpdate:(NSTimer *)timerObj {
+    NSLog(@"In timerUpdate, player is %@", self.player);
 	[self update];
 }
 
@@ -277,6 +288,7 @@
 
 - (void)update {
 	NSLog(@"Updating...");
+    NSLog(@"%@", self.player);
 	if ([self.player isRunning]) {
 		PlayerTrack *newTrack = [self.player currentTrack];
 		if ([newTrack name] == nil || ![self.player isPlaying]) {
@@ -329,6 +341,7 @@
 							 [self.prefs setObject:self.currentName forKey:@"lastSentName"];
 							 [self.prefs setObject:self.currentAlbum forKey:@"lastSentAlbum"];
 							 [self.prefs setObject:self.currentArtist forKey:@"lastSentArtist"];
+                             NSLog(@"Updated prefs with last artists");
 						 }];
 					}
 					
@@ -340,19 +353,21 @@
 							NSString *albumFileName = [NSString stringWithFormat:@"%@-%@.jpg", sArtist, sAlbum];
 							NSString *albumFullFileName = [self pathForDataFile:albumFileName];
 							[self saveArtwork:artwork withFileName:albumFileName];
+                            [self updateStatus:@"Sending artwork..."];
 							if (self.debug) {
 								NSLog(@"Fake-sent album image to campfire");
+                                [self updateStatus:@"Sending artwork...done!"];
+                                [self deleteArtwork:albumFileName];
 							} else {
-								[self updateStatus:@"Sending artwork..."];
 								NSLog(@"Sending artwork %@ to campfire", albumFileName);
 								[self.campfire postFile:albumFullFileName toRoom:roomID
 								 completionHandler:^(HCUploadFile *file, NSError *error) {
 									 NSLog(@"Posted [%@] to campfire", albumFullFileName);
 									 NSLog(@"Error: %@", error);
 									 [self updateStatus:@"Sending artwork...done!"];
+                                     [self deleteArtwork:albumFileName];
 								}];
 							}
-							[self deleteArtwork:albumFileName];
 						} else {
 							NSLog(@"This track had no artwork, not sending any");
 						}
@@ -408,6 +423,7 @@
 
 - (void)saveArtwork:(NSImage *)artwork withFileName:(NSString *)fileName {
 	NSString *fullFileName = [self pathForDataFile:fileName];
+    NSLog(@"Saving %@ to %@", fileName, fullFileName);
 	NSSize size = NSMakeSize(150.0, 150.0);
 	[artwork saveAsJpegWithName:fullFileName andSize:size];
 }
@@ -415,7 +431,8 @@
 - (void)deleteArtwork:(NSString *)fileName {
 	NSString *fullFileName = [self pathForDataFile:fileName];
 	NSFileManager *fileManager = [NSFileManager defaultManager];
-	[fileManager removeItemAtPath:fullFileName error:nil];
+    NSLog(@"Deleting %@ from %@", fileName, fullFileName);
+	//[fileManager removeItemAtPath:fullFileName error:nil];
 }
 
 @end

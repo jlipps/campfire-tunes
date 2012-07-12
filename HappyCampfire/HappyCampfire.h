@@ -20,7 +20,7 @@
 
 @end
 
-@interface HappyCampfire : NSObject <ASIHTTPRequestDelegate>
+@interface HappyCampfire : NSObject <ASIHTTPRequestDelegate, NSURLConnectionDelegate>
 {
    NSString *campfireURL;
    id<CampfireResponseProtocol> delegate;
