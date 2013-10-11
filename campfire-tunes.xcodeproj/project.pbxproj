@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0E273D18035F5B00BAFE90 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B0E273C18035F5B00BAFE90 /* SystemConfiguration.framework */; };
+		1B27AA9418035F80004CB3CF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B27AA9318035F80004CB3CF /* libz.dylib */; };
+		1B27AA9618035F8D004CB3CF /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B27AA9518035F8D004CB3CF /* CoreServices.framework */; };
+		1B27AA9818035F94004CB3CF /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B27AA9718035F94004CB3CF /* libxml2.dylib */; };
 		1B3F1440157D331D00E36C2B /* NSImage+MGCropExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B3F143F157D331D00E36C2B /* NSImage+MGCropExtensions.m */; };
 		1B5DA17315AE59DB00DFD219 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5DA14415AE59DA00DFD219 /* ASIDataCompressor.m */; };
 		1B5DA17415AE59DB00DFD219 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5DA14615AE59DA00DFD219 /* ASIDataDecompressor.m */; };
@@ -27,17 +31,13 @@
 		1B5DA18615AE59DB00DFD219 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5DA16D15AE59DA00DFD219 /* SBJsonBase.m */; };
 		1B5DA18715AE59DB00DFD219 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5DA16F15AE59DA00DFD219 /* SBJsonParser.m */; };
 		1B5DA18815AE59DB00DFD219 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B5DA17115AE59DA00DFD219 /* SBJsonWriter.m */; };
-		1B6F512315658FE400093430 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6F512215658FE400093430 /* ScriptingBridge.framework */; };
-		1B6F6B541565C8CC00B5AF2A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6F6B531565C8CC00B5AF2A /* Foundation.framework */; };
-		1B6F6BC71566AEC000B5AF2A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6F6BC61566AEC000B5AF2A /* SystemConfiguration.framework */; };
-		1B6F6BC91566AEEB00B5AF2A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6F6BC81566AEEB00B5AF2A /* libz.dylib */; };
-		1B6F6BCB1566AEFA00B5AF2A /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6F6BCA1566AEFA00B5AF2A /* CoreServices.framework */; };
-		1B6F6C651566B38F00B5AF2A /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B6F6C641566B38F00B5AF2A /* libxml2.dylib */; };
 		1B77ECAB156AA009009991E1 /* PlayerApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B77ECAA156AA009009991E1 /* PlayerApplication.m */; };
 		1B8ECE451566F4B600FEA7C8 /* campfireTunesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE441566F4B600FEA7C8 /* campfireTunesAppDelegate.m */; };
 		1B8ECE471566F4BD00FEA7C8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B8ECE461566F4BD00FEA7C8 /* main.m */; };
 		1B8ECECE1566FCA600FEA7C8 /* CampfireTunes.icns in Resources */ = {isa = PBXBuildFile; fileRef = 1B8ECECD1566FCA600FEA7C8 /* CampfireTunes.icns */; };
+		1BC2ADA518035F2300BB3219 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC2ADA418035F2300BB3219 /* ScriptingBridge.framework */; };
 		1BE6965215A2190200DA4109 /* NSImage+SaveExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE6965115A2190200DA4109 /* NSImage+SaveExtensions.m */; };
+		1BF711DE18035F4500FEC2F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF711DD18035F4500FEC2F4 /* Foundation.framework */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -47,6 +47,10 @@
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		1B0E273C18035F5B00BAFE90 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		1B27AA9318035F80004CB3CF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libz.dylib; sourceTree = DEVELOPER_DIR; };
+		1B27AA9518035F8D004CB3CF /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/CoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		1B27AA9718035F94004CB3CF /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/usr/lib/libxml2.dylib; sourceTree = DEVELOPER_DIR; };
 		1B3F143E157D331D00E36C2B /* NSImage+MGCropExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+MGCropExtensions.h"; sourceTree = "<group>"; };
 		1B3F143F157D331D00E36C2B /* NSImage+MGCropExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+MGCropExtensions.m"; sourceTree = "<group>"; };
 		1B5DA14215AE59DA00DFD219 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -92,12 +96,6 @@
 		1B5DA16F15AE59DA00DFD219 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		1B5DA17015AE59DA00DFD219 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		1B5DA17115AE59DA00DFD219 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
-		1B6F512215658FE400093430 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
-		1B6F6B531565C8CC00B5AF2A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1B6F6BC61566AEC000B5AF2A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		1B6F6BC81566AEEB00B5AF2A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		1B6F6BCA1566AEFA00B5AF2A /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
-		1B6F6C641566B38F00B5AF2A /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		1B77EC94156A9273009991E1 /* Spotify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spotify.h; sourceTree = "<group>"; };
 		1B77ECA9156AA009009991E1 /* PlayerApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerApplication.h; sourceTree = "<group>"; };
 		1B77ECAA156AA009009991E1 /* PlayerApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerApplication.m; sourceTree = "<group>"; };
@@ -106,8 +104,10 @@
 		1B8ECE441566F4B600FEA7C8 /* campfireTunesAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = campfireTunesAppDelegate.m; sourceTree = "<group>"; };
 		1B8ECE461566F4BD00FEA7C8 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1B8ECECD1566FCA600FEA7C8 /* CampfireTunes.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = CampfireTunes.icns; path = Resources/MacOS/CampfireTunes.icns; sourceTree = "<group>"; };
+		1BC2ADA418035F2300BB3219 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/ScriptingBridge.framework; sourceTree = DEVELOPER_DIR; };
 		1BE6965115A2190200DA4109 /* NSImage+SaveExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+SaveExtensions.m"; sourceTree = "<group>"; };
 		1BE6965315A2192000DA4109 /* NSImage+SaveExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+SaveExtensions.h"; sourceTree = "<group>"; };
+		1BF711DD18035F4500FEC2F4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
@@ -121,12 +121,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
-				1B6F512315658FE400093430 /* ScriptingBridge.framework in Frameworks */,
-				1B6F6B541565C8CC00B5AF2A /* Foundation.framework in Frameworks */,
-				1B6F6BC71566AEC000B5AF2A /* SystemConfiguration.framework in Frameworks */,
-				1B6F6BC91566AEEB00B5AF2A /* libz.dylib in Frameworks */,
-				1B6F6BCB1566AEFA00B5AF2A /* CoreServices.framework in Frameworks */,
-				1B6F6C651566B38F00B5AF2A /* libxml2.dylib in Frameworks */,
+				1BC2ADA518035F2300BB3219 /* ScriptingBridge.framework in Frameworks */,
+				1BF711DE18035F4500FEC2F4 /* Foundation.framework in Frameworks */,
+				1B0E273D18035F5B00BAFE90 /* SystemConfiguration.framework in Frameworks */,
+				1B27AA9418035F80004CB3CF /* libz.dylib in Frameworks */,
+				1B27AA9818035F94004CB3CF /* libxml2.dylib in Frameworks */,
+				1B27AA9618035F8D004CB3CF /* CoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,12 +231,6 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				1B6F512215658FE400093430 /* ScriptingBridge.framework */,
-				1B6F6B531565C8CC00B5AF2A /* Foundation.framework */,
-				1B6F6BC61566AEC000B5AF2A /* SystemConfiguration.framework */,
-				1B6F6BC81566AEEB00B5AF2A /* libz.dylib */,
-				1B6F6BCA1566AEFA00B5AF2A /* CoreServices.framework */,
-				1B6F6C641566B38F00B5AF2A /* libxml2.dylib */,
 			);
 			name = "saucy-tunes";
 			sourceTree = "<group>";
@@ -267,6 +261,12 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1B27AA9718035F94004CB3CF /* libxml2.dylib */,
+				1B27AA9518035F8D004CB3CF /* CoreServices.framework */,
+				1B27AA9318035F80004CB3CF /* libz.dylib */,
+				1B0E273C18035F5B00BAFE90 /* SystemConfiguration.framework */,
+				1BF711DD18035F4500FEC2F4 /* Foundation.framework */,
+				1BC2ADA418035F2300BB3219 /* ScriptingBridge.framework */,
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
 			);
@@ -299,6 +299,8 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "campfire-tunes" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -399,6 +401,7 @@
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "campfireTunes-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = campfireTunes;
 				SDKROOT = macosx;
 			};
@@ -414,6 +417,7 @@
 				GCC_PREFIX_HEADER = campfireTunesRelease_Prefix.pch;
 				INFOPLIST_FILE = "campfireTunes-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = campfireTunes;
 				SDKROOT = macosx;
 			};
